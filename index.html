@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Workshop Registration</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="wrap">
+  <section id="formView">
+    <h1>Register for the Cloud Computing Workshop</h1>
+    <p class="lead">Fill in your details. You will see a summary right after you submit.</p>
+
+    <form id="regForm" novalidate>
+      <div class="row">
+        <label>Full name <input type="text" name="name" required></label>
+        <label>Email <input type="email" name="email" required></label>
+      </div>
+      <div class="row">
+        <label>Phone <input type="tel" name="phone" pattern="[0-9+\- ]{7,15}" required></label>
+        <label>Date of birth <input type="date" name="dob" required></label>
+      </div>
+      <fieldset>
+        <legend>Gender</legend>
+        <label class="inline"><input type="radio" name="gender" value="Female" required> Female</label>
+        <label class="inline"><input type="radio" name="gender" value="Male"> Male</label>
+        <label class="inline"><input type="radio" name="gender" value="Other"> Other</label>
+      </fieldset>
+      <div class="row">
+        <label>Course
+          <select name="course" required>
+            <option value="">Select a course</option>
+            <option>B.Tech</option><option>M.Tech</option><option>BCA</option><option>MCA</option><option>MBA</option>
+          </select>
+        </label>
+        <label>Institution <input type="text" name="institution" required></label>
+      </div>
+      <fieldset>
+        <legend>Interests</legend>
+        <label class="inline"><input type="checkbox" name="interests[]" value="Web Development"> Web Development</label>
+        <label class="inline"><input type="checkbox" name="interests[]" value="Cloud"> Cloud</label>
+        <label class="inline"><input type="checkbox" name="interests[]" value="Data Science"> Data Science</label>
+        <label class="inline"><input type="checkbox" name="interests[]" value="Security"> Security</label>
+      </fieldset>
+      <label>Address <textarea name="address" rows="3" required></textarea></label>
+
+      <p id="error" class="error" role="alert" hidden></p>
+      <button type="submit" id="submitBtn">Submit registration</button>
+    </form>
+  </section>
+
+  <section id="resultView" hidden>
+    <h1>Registration received</h1>
+    <p class="lead" id="refLine"></p>
+    <table class="summary" id="summary"></table>
+    <button type="button" id="againBtn" class="secondary">Register another person</button>
+  </section>
+</main>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
